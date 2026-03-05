@@ -23,6 +23,9 @@ public class CarView extends JFrame{
     CarController carC;
 
     DrawPanel drawPanel;
+    public DrawPanel getDrawPanel(){
+        return drawPanel;
+    }
 
     JPanel controlPanel = new JPanel();
 
@@ -31,6 +34,42 @@ public class CarView extends JFrame{
     int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
+
+    public void addVehicleDialog(CarController controller) {
+        CarFactory factory = new CarFactory();
+
+        String[] vehicleOptions = factory.getVehicleStrings().toArray(new String[0]);
+
+        JComboBox<String> comboBox = new JComboBox<>(vehicleOptions);
+
+        comboBox.addItem("Random");
+
+        int result = JOptionPane.showConfirmDialog(
+                this,
+                comboBox,
+                "Select a vehicle to add",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            String selectedCar = (String) comboBox.getSelectedItem();
+            if (selectedCar != null) {
+                Vehicle newCar = factory.createVehicle(selectedCar);
+
+                newCar.setY(0);
+
+                // directly add to model's list
+                carC.model.getCars().add(newCar);
+
+                // repaint the panel so the new car is visible
+                this.repaint();
+            }
+        }
+    }
+
+    JButton addVehicleButton = new JButton("Add Vehicle");
+    JButton removeVehicleButton = new JButton("Remove Vehicle");
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
@@ -83,6 +122,8 @@ public class CarView extends JFrame{
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(addVehicleButton, 6);
+        controlPanel.add(removeVehicleButton, 7);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.PINK);

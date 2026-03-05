@@ -20,6 +20,7 @@ public class CarController extends JFrame {
     // The frame that represents this instance View of the MVC pattern
     CarView view;
     Model model;
+    DrawPanel drawPanel;
 
     CollisionHandler collisionHandler;
 
@@ -28,6 +29,9 @@ public class CarController extends JFrame {
     public CarController() {
         this.model = new Model();
         this.view = new CarView("CarSim 2.0", this);
+        this.drawPanel = view.getDrawPanel();
+
+        model.addObserver(drawPanel);
 
         collisionHandler = new CollisionHandler(this);
         timer = new Timer(delay, collisionHandler.getTimer());
@@ -41,7 +45,6 @@ public class CarController extends JFrame {
     public List<Workshop> getWorkshops() {
         return model.getWorkshops();
     }
-
 
     public void startTimer() {
         timer.start();
@@ -68,6 +71,15 @@ public class CarController extends JFrame {
                 car.stopEngine();
                 car.brake(1);
             }
+        });
+
+
+        view.addVehicleButton.addActionListener(e -> {
+            view.addVehicleDialog(this);
+        });
+
+        view.removeVehicleButton.addActionListener(e -> {
+            model.getCars().remove(getCars().size()-1);
         });
 
         view.gasSpinner.addChangeListener(e -> gasAmount = (int) ((JSpinner)e.getSource()).getValue());

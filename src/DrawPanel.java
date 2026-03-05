@@ -4,7 +4,7 @@ import java.util.List;
 import javax.swing.*;
 
 // This panel represents the animated part of the view with the car images.
-public class DrawPanel extends JPanel{
+public class DrawPanel extends JPanel implements ModelObserver{
     CarController cc;
 
     List<Vehicle> cars;
@@ -15,10 +15,14 @@ public class DrawPanel extends JPanel{
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
-
         this.cc = cc;
         cars = cc.getCars();
         workshops = cc.getWorkshops();
+    }
+
+    @Override
+    public void onUpdate() {
+        repaint();
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
