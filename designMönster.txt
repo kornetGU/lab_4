@@ -1,0 +1,11 @@
+Observer,
+    koordinater
+
+
+Factory Method,
+
+
+State,
+
+
+Composite

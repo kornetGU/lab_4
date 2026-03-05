@@ -1,7 +1,7 @@
 package Vehicle;
 import java.awt.*;
 
-public class Saab95 extends Car {
+public class Saab95 extends Car implements Turbo {
 
     private boolean turboOn;    /** Indicates whether turbo is active */
 
@@ -9,7 +9,7 @@ public class Saab95 extends Car {
      * Constructor to initialize the state of the Saab95.
      */
     public Saab95(){
-        super(2,125,Color.red,"Saab95");
+        super(2,125,Color.red,"Saab95", "pics/Saab95.jpg");
         turboOn = false;
         stopEngine();
     }
@@ -17,6 +17,7 @@ public class Saab95 extends Car {
     /**
      * Sets turboOn to 'true'.
      */
+    @Override
     public void setTurboOn(){
 	    turboOn = true;
     }
@@ -24,6 +25,7 @@ public class Saab95 extends Car {
     /**
      * Sets turboOn to 'false'.
      */
+    @Override
     public void setTurboOff(){
 	    turboOn = false;
     }

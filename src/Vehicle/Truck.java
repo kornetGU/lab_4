@@ -4,8 +4,8 @@ import java.awt.*;
 public abstract class Truck extends Vehicle {
     public Ramp ramp;
 
-    public Truck(int nrDoors, double enginePower, Color color, String modelName){
-        super(nrDoors,enginePower,color,modelName);
+    public Truck(int nrDoors, double enginePower, Color color, String modelName, String path){
+        super(nrDoors,enginePower,color,modelName, path);
     }
 
     /**
@@ -14,8 +14,16 @@ public abstract class Truck extends Vehicle {
      */
     @Override
     public void move() {
-        if (ramp.getCurrentTilt() != 0 && ramp != null) throw new IllegalStateException("Cannot move while ramp is down.");
+        if (!canMove()) throw new IllegalStateException("Cannot move while ramp is down.");
         super.move();
+    }
+
+    /**
+     * @return true if currentTilt of ramp is down.
+     */
+    @Override
+    public boolean canMove() {
+         return ramp.getCurrentTilt() == 0;
     }
 
     /**

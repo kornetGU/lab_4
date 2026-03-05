@@ -1,4 +1,5 @@
 package Vehicle;
+import javax.imageio.ImageIO;
 import java.awt.*;
 
 public class Volvo240 extends Car {
@@ -9,7 +10,8 @@ public class Volvo240 extends Car {
      * Constructor to initialize state of Volvo240.
      */
     public Volvo240(){
-        super(4,100,Color.black,"Volvo240");
+
+        super(4,100,Color.black,"Volvo240","pics/Volvo240.jpg");
         stopEngine();
     }
 

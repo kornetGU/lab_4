@@ -1,5 +1,10 @@
 package Vehicle;
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.nio.file.Path;
+
 
 public abstract class Vehicle implements Movable {
     private int nrDoors;    /** Number of doors on the car */
@@ -7,18 +12,28 @@ public abstract class Vehicle implements Movable {
     private double currentSpeed;    /** The current speed of the car */
     private Color color;    /** Color of the car */
     private String modelName;     /** The car model name */
+    private BufferedImage image;
 
     public double x = 0.0;    /** Represents the cars current position on the x-axis. */
     public double y = 0.0;    /** Represents the cars current position on the y-axis. */
-    Direction dir = Direction.FORWARD;    /** Represents the cars current direction. */
+    Direction dir = Direction.FORWARD;
+
+    /** Represents the cars current direction. */
 
     public abstract boolean isLoadable();
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName) {
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, String imagePath) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+
+        try {
+            this.image = ImageIO.read(Vehicle.class.getResourceAsStream(imagePath));
+        } catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -37,16 +52,15 @@ public abstract class Vehicle implements Movable {
         return this.y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
-
 
     /**
      * Getter method for the nrDoors field.
      * @return the int nrDoors field.
      */
-    int getNrDoors(){
+    private int getNrDoors(){
         return nrDoors;
     }
 
@@ -70,9 +84,15 @@ public abstract class Vehicle implements Movable {
      * Getter method for the color field.
      * @return the color field of type Color.
      */
-    Color getColor(){
+    private Color getColor(){
         return color;
     }
+
+    public BufferedImage getImage() {
+        return image;
+    };
+
+    public String getModelName() {return modelName;}
 
     /**
      * Setter method for the color field.
@@ -97,6 +117,10 @@ public abstract class Vehicle implements Movable {
     }
 
     abstract double speedFactor();
+
+    public boolean canMove() {
+        return true;
+    }
 
     /**
      * Moves the car a distance based on its current position, direction and speed.

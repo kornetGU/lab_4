@@ -5,11 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CollisionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/IntelliLang.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designMönster.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vehicle/Turbo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vehicle/refaktorisering2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarController$TimerListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/CarController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CarView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/CarView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/CollisionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/CollisionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/DrawPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/DrawPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/BinaryRamp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/BinaryRamp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/Saab95.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/Saab95.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/Scania.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/Scania.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/Truck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/Truck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/Vehicle$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/Vehicle$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/Vehicle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/VehicleCarrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/VehicleCarrier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/Volvo240.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/Volvo240.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/Vehicle/Workshop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab3/Vehicle/Workshop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/pics/Saab95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/pics/Scania.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/pics/Volvo240.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab3/pics/VolvoBrand.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/refaktoriseringsplan.txt" beforeDir="false" afterPath="$PROJECT_DIR$/refaktoriseringsplan.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Saab95.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Saab95.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Scania.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Scania.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Truck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/VehicleCarrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/VehicleCarrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Volvo240.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Volvo240.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Workshop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Workshop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pics/Saab95.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/pics/Saab95.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pics/Scania.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/pics/Scania.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pics/Volvo240.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/pics/Volvo240.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pics/VolvoBrand.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/pics/VolvoBrand.jpg" afterDir="false" />
     </list>
     <list id="6036a1f7-64c4-4a46-9f5d-adb36d6c8bb8" name="Changes by tural.binnatov" comment="" />
+    <list id="0dba432a-e738-453d-a51e-feefc455bd14" name="Changes by uni" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Truck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle/Vehicle.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,13 +70,38 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Vehicle/Truck.java">
+      <ranges>
+        <range start1="6" end1="8" start2="6" end2="8" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="16" end1="17" start2="16" end2="17" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="19" end1="19" start2="19" end2="27" changelist="0dba432a-e738-453d-a51e-feefc455bd14" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Vehicle/Vehicle.java">
+      <ranges>
+        <range start1="1" end1="1" start2="1" end2="2" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="2" end1="2" start2="3" end2="7" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="9" end1="9" start2="14" end2="15" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="12" end1="13" start2="18" end2="21" changelist="0dba432a-e738-453d-a51e-feefc455bd14" />
+        <range start1="16" end1="17" start2="24" end2="25" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="21" end1="21" start2="29" end2="36" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="39" end1="40" start2="54" end2="55" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="42" end1="43" start2="57" end2="57" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="48" end1="49" start2="62" end2="63" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="72" end1="73" start2="86" end2="87" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="75" end1="75" start2="89" end2="95" changelist="d1a58d8f-9c10-4faa-87bb-c7c2befe37d3" />
+        <range start1="100" end1="100" start2="120" end2="124" changelist="0dba432a-e738-453d-a51e-feefc455bd14" />
+      </ranges>
+    </file>
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -62,6 +139,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -80,7 +162,9 @@
       <workItem from="1770918302438" duration="627000" />
       <workItem from="1771411865727" duration="26991000" />
       <workItem from="1771587407177" duration="4820000" />
-      <workItem from="1771597422203" duration="6654000" />
+      <workItem from="1771597422203" duration="7814000" />
+      <workItem from="1771861794822" duration="21000" />
+      <workItem from="1772626324273" duration="29886000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.List;
+import javax.swing.*;
+import java.awt.*;
 import Vehicle.*;
 
 /*
@@ -10,124 +10,77 @@ import Vehicle.*;
 * modifying the model state and the updating the view.
  */
 
-public class CarController {
-    // member fields:
-    Volvo240 volvo ;
-    Scania scania ;
-    Saab95 saab ;
-    Workshop<Volvo240> workshop;
-
+public class CarController extends JFrame {
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
+    private Timer timer;
 
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
-    // A list of cars, modify if needed
-    ArrayList<Vehicle> cars;
+    CarView view;
+    Model model;
 
-    //methods:
+    CollisionHandler collisionHandler;
+
+    int gasAmount = 0;
 
     public CarController() {
-        volvo = new Volvo240();
-        scania = new Scania();
-        saab = new Saab95();
-        cars = new ArrayList<>();
+        this.model = new Model();
+        this.view = new CarView("CarSim 2.0", this);
 
-        workshop = new Workshop<Volvo240>(1,"VolvoWorkshop");
-
-        cars.add(scania);
-        cars.add(saab);
-        cars.add(volvo);
+        collisionHandler = new CollisionHandler(this);
+        timer = new Timer(delay, collisionHandler.getTimer());
+        createListeners();
     }
 
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
-
-
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
-
-        // Start the timer
-        cc.timer.start();
+    public List<Vehicle> getCars() {
+        return model.getCars();
     }
 
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle car : cars) {
-            car.gas(gas);
-        }
+    public List<Workshop> getWorkshops() {
+        return model.getWorkshops();
     }
 
-    void brake(int amount) {
-        double brake = ((double) amount) / 100;
-        for (Vehicle car : cars) {
-            car.brake(brake);
-        }
+
+    public void startTimer() {
+        timer.start();
     }
 
-    void lowerRamp() {
-        scania.lowerRamp();
-    }
+    public void createListeners()  {
+        view.gasButton.addActionListener(e -> model.gas(gasAmount));
 
-    void raiseRamp() {
-        scania.raiseRamp();
-    }
+        // actionListener for the brake button only
+        view.brakeButton.addActionListener(e -> model.brake(gasAmount));
 
-    void turboOn() {
-        saab.setTurboOn();
-    }
+        view.liftBedButton.addActionListener(e -> model.raiseRamp());
 
-    void turboOff() {
-        saab.setTurboOff();
+        view.lowerBedButton.addActionListener(e -> model.lowerRamp());
+
+        view.turboOnButton.addActionListener(e -> model.turboOn());
+
+        view.turboOffButton.addActionListener(e -> model.turboOff());
+
+        view.startButton.addActionListener(e -> model.gas(1));
+
+        view.stopButton.addActionListener(e -> {
+            for (Vehicle car : model.getCars()) {
+                car.stopEngine();
+                car.brake(1);
+            }
+        });
+
+        view.gasSpinner.addChangeListener(e -> gasAmount = (int) ((JSpinner)e.getSource()).getValue());
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (int i = 0; i < cars.size(); i++) {
-                Vehicle car = cars.get(i);
+    public static void main(String[] args) {
+        // Instance of this class
+        CarController cc = new CarController();
 
-                // om bilen är en scania och rampen är lyft, ska den inte kunna köra
-                if (car instanceof Scania) {
-                    Scania scan = (Scania) car;
-                    if (scan.stepRamp.getCurrentTilt() != 0) continue;
-                }
-
-                car.move();
-
-                //set carPoint to car's current coordinates
-                int x = (int) Math.round(car.getX());
-                int y = (int) Math.round(car.getY());
-
-                //car should bounce off the walls, turning 180 degrees
-                if (x+100 >= 800 || x < 0 || y+100 >= 800 || y < 0) {
-                    car.turnLeft();
-                    car.turnLeft();
-                }
-
-                //load volvo
-                if (car instanceof Volvo240) {
-                    if (car.x >= 300) {
-                        car.stopEngine();
-                        car.brake(1);
-                        workshop.addCar((Volvo240) car);
-                        cars.remove(car);
-                    }
-                }
-
-
-
-                frame.drawPanel.moveit(i, x, y);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-            }
-        }
+        // Start the timer
+        cc.startTimer();
     }
 }

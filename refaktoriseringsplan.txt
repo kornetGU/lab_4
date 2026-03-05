@@ -24,6 +24,10 @@ Steg 1
 
 Identifiera vilka moduler som kommer att påverkas av dessa förändringar. Hur påverkas resten av kodbasen av det vi ändrar?
 
+det är främst controller, timerListener, view och drawpanel som kommer att påverkas av refaktoriseringarna,
+men även saab och workshop kommer att förändas lite pga implementation av nya interfaces
+
+
 Steg 2
 
 Skapa en Model-klass som tar över all hantering av bilinstanser från CarController.
@@ -31,6 +35,8 @@ Flytta relevant logik till respektive klass.
 
 Implementera Turbo och WorkShop-interface.
 Detta för att enklare kunna kontrollera om en bil t.ex. "har en turbo".
+
+- turbo on och off metoderna i model ändras från att kolla om det är en saab till att kolla om den har en turbo
 
 Steg 3
 
