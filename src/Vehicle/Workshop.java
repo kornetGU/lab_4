@@ -27,14 +27,6 @@ public class Workshop<X extends Vehicle> {      // Ensure type parameter X must 
         this.vehicleType = vehicleType;
     }
 
-
-    /**
-     * @return
-     */
-    int nrOfCars() {
-        return currentVehicles.size();
-    }
-
     /**
      * Adds car to workshop if there is space for it
      * @param vehicle to add to workshop
@@ -66,10 +58,6 @@ public class Workshop<X extends Vehicle> {      // Ensure type parameter X must 
     public double getY() {
         return this.y;
     }
-
-    public BufferedImage getImage(){return image;}
-
-    public Class getAcceptedVehicleType(){return vehicleType;}
 
     public boolean acceptsVehicle(Vehicle vehicle){return vehicleType.isInstance(vehicle);}
 }

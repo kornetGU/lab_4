@@ -21,6 +21,8 @@ public class CarController extends JFrame {
     // The frame that represents this instance View of the MVC pattern
     CarView view;
     Model model;
+    public List<Vehicle> getCars(){return model.getCars();}
+
     DrawPanel drawPanel;
 
     CollisionHandler collisionHandler;
@@ -33,17 +35,14 @@ public class CarController extends JFrame {
 
         this.model = new Model();
         model.addObserver(drawPanel);
-        model.notifyObservers();
-        model.notifyWorkshopListeners();
+        model.notifyCarObservers();
+        model.notifyWorkshopObservers();
 
         collisionHandler = new CollisionHandler(this);
         timer = new Timer(delay, collisionHandler.getTimer());
         createListeners();
     }
 
-    public List<Vehicle> getCars() {
-        return model.getCars();
-    }
 
     public List<Workshop> getWorkshops() {
         return model.getWorkshops();
@@ -70,20 +69,15 @@ public class CarController extends JFrame {
         view.startButton.addActionListener(e -> model.gas(1));
 
         view.stopButton.addActionListener(e -> {
-            for (Vehicle car : model.getCars()) {
-                car.stopEngine();
-                car.brake(1);
-            }
+            model.brakeAll();
         });
-
-
 
         view.addVehicleButton.addActionListener(e -> {
             addVehicleDialog(this);
         });
 
         view.removeVehicleButton.addActionListener(e -> {
-            model.getCars().remove(getCars().size()-1);
+            model.removeCar();
         });
 
         view.gasSpinner.addChangeListener(e -> gasAmount = (int) ((JSpinner)e.getSource()).getValue());
@@ -105,15 +99,10 @@ public class CarController extends JFrame {
         );
 
         if (result == JOptionPane.OK_OPTION) {
-            if (!(controller.getCars().size() >= 10)) {
+            if (!(model.getCars().size() >= 10)) {
                 String selectedCar = (String) comboBox.getSelectedItem();
                 if (selectedCar != null) {
-                    Vehicle newCar = factory.createVehicle(selectedCar);
-                    newCar.setY(0);
-
-                    // directly add to model's list
-                    getCars().add(newCar);
-                    this.model.notifyObservers();
+                    model.addCar(selectedCar);
                 }
             }
         }

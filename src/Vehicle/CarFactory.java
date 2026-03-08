@@ -10,20 +10,26 @@ public class CarFactory {
 
     public CarFactory(){
         vehicleStrings = new ArrayList<>();
-        vehicleStrings.add("Saab");
-        vehicleStrings.add("Volvo");
+        vehicleStrings.add("Saab95");
+        vehicleStrings.add("Volvo240");
         vehicleStrings.add("Scania");
     }
 
+    /**
+     * Create a vehicle based on string.
+     * If new vehicletype is introduced, u need to update addToImageRegistry in DrawPanel.
+     * @param vehicleType String to match with cars model
+     * @return a Vehicle
+     */
     public Vehicle createVehicle(String vehicleType) {
         Random rand = new Random();
         Vehicle createdVehicle;
 
         switch (vehicleType) {
-            case "Volvo" -> {
+            case "Volvo240" -> {
                 createdVehicle = new Volvo240();
             }
-            case "Saab" -> {
+            case "Saab95" -> {
                 createdVehicle = new Saab95();
             }
             case "Scania" -> {

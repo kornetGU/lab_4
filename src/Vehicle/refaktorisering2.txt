@@ -1,3 +1,0 @@
-view ska hantera bilderna, hashmap med modellnamn och bufferedImage, och model skickar endast string i update
-
-se över addcar i carview

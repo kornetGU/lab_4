@@ -30,8 +30,6 @@ public abstract class Vehicle implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-
-
     }
 
     /**

@@ -24,7 +24,6 @@ public class DrawPanel extends JPanel implements ModelObserver{
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
-
         addToImageRegistry();
     }
 
@@ -33,10 +32,10 @@ public class DrawPanel extends JPanel implements ModelObserver{
      */
     private void addToImageRegistry(){
         try {
-            imageRegistry.put("Saab95",         ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
+            imageRegistry.put("Saab95",          ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
             imageRegistry.put("Volvo240",        ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
-            imageRegistry.put("Scania",       ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg")));
-            imageRegistry.put("VolvoWorkshop",ImageIO.read(DrawPanel.class.getResourceAsStream("pics/VolvoBrand.jpg")));
+            imageRegistry.put("Scania",          ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg")));
+            imageRegistry.put("VolvoWorkshop",   ImageIO.read(DrawPanel.class.getResourceAsStream("pics/VolvoBrand.jpg")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +47,6 @@ public class DrawPanel extends JPanel implements ModelObserver{
 
     @Override
     public void updateCars(Map<String, Point> carInfo) {
-        System.out.println("updateCars called with: " + carInfo); // debug
         this.carInfo = carInfo;
         repaint();
     }
@@ -69,7 +67,6 @@ public class DrawPanel extends JPanel implements ModelObserver{
                 g.drawImage(image, entry.getValue().x, entry.getValue().y, null);
         }
     }
-
 
     // This method is called each time the panel updates/refreshes/repaints itself
     @Override

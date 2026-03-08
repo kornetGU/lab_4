@@ -13,19 +13,20 @@ public class Model {
     List<ModelObserver> observer = new ArrayList<>();
     public void addObserver(ModelObserver o) {observer.add(o);}
 
-    public void notifyObservers() {
+    public void notifyCarObservers() {
         for (ModelObserver o : observer) {
             o.updateCars(carInfo());
         }
     }
 
-    public void notifyWorkshopListeners() {
+    public void notifyWorkshopObservers() {
         for (ModelObserver o : observer) {
             o.updateWorkshops(workshopInfo());
         }
     }
 
-    public Map<String, Point> carInfo(){
+    // Only information that gets sent to drawPanel.
+    private Map<String, Point> carInfo(){
         Map<String, Point> carInfo = new HashMap<>();
         for (Vehicle car : cars) {
             carInfo.put(car.getId() + "_" + car.getModelName(),
@@ -34,14 +35,13 @@ public class Model {
         return carInfo;
     }
 
-    public Map<String, Point> workshopInfo(){
+    private Map<String, Point> workshopInfo(){
         Map<String, Point> workshopInfo = new HashMap<>();
         for (Workshop workshop : workshops) {
             workshopInfo.put(workshop.getName() ,new Point((int)workshop.getX(),(int)workshop.getY()));
         }
         return workshopInfo;
     }
-
 
     // CARS
     private List<Vehicle> cars;
@@ -51,6 +51,17 @@ public class Model {
     }
 
     private CarFactory carFactory;
+
+    public void addCar(String modelName) {
+        Vehicle car = carFactory.createVehicle(modelName);
+        cars.add(car);
+        car.setY(0);
+        notifyCarObservers();
+    }
+
+    public void removeCar(){
+        cars.remove(cars.size() - 1 );
+    }
 
     // WORKSHOPS
     private Workshop<Volvo240> volvoWorkshop;
@@ -75,25 +86,25 @@ public class Model {
         setY();
     }
 
-    void lowerRamp() {
+    public void lowerRamp() {
         for (Vehicle car : cars) {
             if (car instanceof Ramp rampTruck) rampTruck.lowerRamp();
         }
     }
 
-    void raiseRamp() {
+    public void raiseRamp() {
         for (Vehicle car : cars) {
             if (car instanceof Ramp rampTruck) rampTruck.raiseRamp();
         }
     }
 
-    void turboOn() {
+    public void turboOn() {
         for (Vehicle car : cars) {
             if (car instanceof Turbo turboCar) turboCar.setTurboOn();
         }
     }
 
-    void turboOff() {
+    public void turboOff() {
         for (Vehicle car : cars) {
             if (car instanceof Turbo turboCar) turboCar.setTurboOff();
         }
@@ -117,20 +128,27 @@ public class Model {
             if (newX != oldX || newY != oldY) moved = true ;
 
         }
-        if(moved) notifyObservers();
+        if(moved) notifyCarObservers();
     }
 
-    void gas(int amount) {
+    public void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Vehicle car : cars) {
             car.gas(gas);
         }
     }
 
-    void brake(int amount) {
+    public void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (Vehicle car : cars) {
             car.brake(brake);
+        }
+    }
+
+    public void brakeAll(){
+        for (Vehicle car : cars) {
+            car.stopEngine();
+            car.brake(1);
         }
     }
 
